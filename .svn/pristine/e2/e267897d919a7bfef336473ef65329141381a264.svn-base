@@ -1,0 +1,48 @@
+package database.table.customerMeasurements;
+
+import database.table.DBTable;
+
+public class DBTable_CustomerMeasurements extends DBTable
+{
+
+	public DBTable_CustomerMeasurements(String name)
+	{
+		super(name);
+	}
+
+	protected void Init()
+	{
+		AddAttribute("MeasurementID int primary key auto_increment not null");
+		AddAttribute("CustomerID int not null");
+		AddAttribute("Item varchar(255)");
+		AddAttribute("Type varchar(255)");
+		AddAttribute("SubType varchar(255)");
+		AddAttribute("Measurement varchar(255)");
+		AddAttribute("Amount int");
+		AddAttribute("Quantity int");
+		AddAttribute("Date date not null");
+	}
+
+	public boolean Insert(int customerId, String item, String type, String subType, String measurement,
+			int pricePerItem, int quantity)
+	{
+		return super.Insert(GetInsertionQuery(customerId, item, type, subType, measurement, pricePerItem, quantity));
+	}
+
+	private String GetInsertionQuery(int customerId, String item, String type, String subType, String measurement,
+			int pricePerItem, int quantity)
+	{
+		item = "'" + item + "'";
+		type = "'" + type + "'";
+		subType = "'" + subType + "'";
+		measurement = "'" + measurement + "'";
+
+		String sql = "insert into " + myName
+				+ " (CustomerId, Item, Type, SubType, Measurement, Amount, Quantity, Date) values ( " + customerId
+				+ ", " + item + ", " + type + ", " + subType + ", " + measurement + ", " + pricePerItem + ", "
+				+ quantity + ", " + "curdate()" + " );";
+
+		return sql;
+	}
+
+}

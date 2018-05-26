@@ -1,0 +1,62 @@
+package application;
+
+import javax.swing.JOptionPane;
+
+import database.db_manager.DatabaseManager;
+import database.table.DB_TableManager;
+import form.manager.FormManager;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import license.LicenseManager;
+
+public class App extends Application
+{
+	private Stage myStage;
+
+	public App()
+	{
+	}
+
+	public App(Stage stage)
+	{
+		myStage = stage;
+	}
+
+	private void Start()
+	{
+		// initialize the database system
+		DatabaseManager.GetInstance().CreateDatabase("ganesh");
+		DB_TableManager.GetInstance().Init();
+
+		FormManager.GetInstance().Init();
+	}
+
+	private boolean CheckLicense()
+	{
+		// intialize the license manager
+		LicenseManager.GetInstance().Init();
+		return LicenseManager.GetInstance().CheckLicense();
+	}
+
+	@Override
+	public void start(Stage primaryStage)
+	{
+		App app = new App(primaryStage);
+
+		if (app.CheckLicense())
+		{
+			app.Start();
+		}
+		else
+		{
+			System.exit(0);
+		}
+
+	}
+
+	public static void main(String[] args)
+	{
+		launch(args);
+	}
+
+}

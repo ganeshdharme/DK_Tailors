@@ -1,0 +1,108 @@
+package form.jfx.customerMeasurement;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+public class MeasurementDetail
+{
+	private IntegerProperty myMeasurementId;
+	private IntegerProperty myCustomerId;
+	private StringProperty mySelectItem;
+	private StringProperty mySelectType;
+	private StringProperty mySelectSubType;
+	private IntegerProperty myQuantity;
+	private IntegerProperty myPricePerItem;
+	private StringProperty myMeasurement;
+	private IntegerProperty myTotalPrice;
+
+	public StringProperty GetSelectItem()
+	{
+		return mySelectItem;
+	}
+
+	public void SetSelectItem(String mySelectItem)
+	{
+		this.mySelectItem.set(mySelectItem);
+	}
+
+	public StringProperty GetSelectType()
+	{
+		return mySelectType;
+	}
+
+	public void SetSelectType(String mySelectType)
+	{
+		this.mySelectType.set(mySelectType);
+	}
+
+	public StringProperty GetSelectSubType()
+	{
+		return mySelectSubType;
+	}
+
+	public void SetSelectSubType(String mySelectSubType)
+	{
+		this.mySelectSubType.set(mySelectSubType);
+	}
+
+	public IntegerProperty GetQuantity()
+	{
+		return myQuantity;
+	}
+
+	public void SetQuantity(int myQuantity)
+	{
+		this.myQuantity.set(myQuantity);
+	}
+
+	public IntegerProperty GetMeasurementId()
+	{
+		return myMeasurementId;
+	}
+
+	public IntegerProperty GetCustomerId()
+	{
+		return myCustomerId;
+	}
+
+	public IntegerProperty GetPricePerItem()
+	{
+		return myPricePerItem;
+	}
+
+	public void SetPricePerItem(int myPricePerItem)
+	{
+		this.myPricePerItem.set(myPricePerItem);
+	}
+
+	public StringProperty GetMeasurement()
+	{
+		return myMeasurement;
+	}
+
+	public IntegerProperty getTotalPrice()
+	{
+		int myTotalPrice = GetQuantity().get() * GetPricePerItem().get();
+		this.myTotalPrice.set(myTotalPrice);
+		return this.myTotalPrice;
+	}
+
+	public void SetMeasurement(String myMeasurement)
+	{
+		this.myMeasurement.set(myMeasurement);
+	}
+
+	public MeasurementDetail()
+	{
+		this.mySelectItem = new SimpleStringProperty();
+		this.mySelectType = new SimpleStringProperty();
+		this.mySelectSubType = new SimpleStringProperty();
+		this.myQuantity = new SimpleIntegerProperty();
+		this.myPricePerItem = new SimpleIntegerProperty();
+		this.myMeasurement = new SimpleStringProperty();
+		this.myTotalPrice = new SimpleIntegerProperty();
+	}
+
+}

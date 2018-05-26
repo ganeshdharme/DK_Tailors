@@ -1,0 +1,397 @@
+package form.jfx.customerMeasurement;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
+import com.mysql.jdbc.exceptions.MySQLInvalidAuthorizationSpecException;
+
+import database.table.DB_TableManager;
+import database.table.DB_TableNames;
+import database.table.customerBalance.BalanceDetails;
+import database.table.customerBalance.DBTable_CustomerBalance;
+import database.table.customerMeasurements.DBTable_CustomerMeasurements;
+import form.jfx.JFXForm;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class JFXForm_NewMeasurement extends JFXForm implements Initializable
+{
+	@FXML private ComboBox<String> mycbType;
+	@FXML private ComboBox<String> mycbItem;
+	@FXML private TextField mytfSubType;
+
+	@FXML private TextField mytfQuantity;
+	@FXML private TextField mytfPrice;
+
+	@FXML private TextArea mytaMeasurement;
+
+	@FXML private TableView<MeasurementDetail> myMeasurementTableView;
+	@FXML private TableColumn<MeasurementDetail, String> myTcItem;
+	@FXML private TableColumn<MeasurementDetail, String> myTcType;
+
+	@FXML private TableColumn<MeasurementDetail, String> myTcSubType;
+	@FXML private TableColumn<MeasurementDetail, Integer> myTcQuantity;
+
+	@FXML private TableColumn<MeasurementDetail, Integer> myTcPricePerItem;
+
+	@FXML private TableColumn<MeasurementDetail, Integer> myTcTotalPrice;
+
+	@FXML public Button mybtnAddItem;
+	@FXML private Label mylblTotal;
+	@FXML private Label mylblPending;
+	@FXML private Button mybtnDelete;
+
+	@FXML private TextField mytfAmoutPaid;
+
+	@FXML public Button mybtnSave;
+	@FXML public Button mybtnClose;
+
+	private ObservableList<String> myList_Item;
+	private ObservableList<String> myList_Type;
+	private ObservableList<MeasurementDetail> myMeasurementList;
+
+	public JFXForm_NewMeasurement()
+	{
+	}
+
+	public JFXForm_NewMeasurement(String fxmlPath)
+	{
+		super(fxmlPath);
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources)
+	{
+		InitItems();
+		InitTypes();
+		InitMeasurementList();
+	}
+
+	private void InitMeasurementList()
+	{
+		myMeasurementList = FXCollections.observableArrayList();
+	}
+
+	private void InitItems()
+	{
+		myList_Item = FXCollections.observableArrayList();
+
+		AddItem("Naadi Chain Bijaar");
+		AddItem("Naadi Button Bijaar");
+		AddItem("Manela");
+		AddItem("Kapeja");
+		AddItem("Netar Shirt");
+		AddItem("Tin Button Shirt");
+		AddItem("Banela");
+		AddItem("Plain Pant");
+		AddItem("Narrow Pant");
+		AddItem("Belt Bijaar");
+
+		mycbItem.setItems(myList_Item);
+	}
+
+	private void AddItem(String itemName)
+	{
+		myList_Item.add(itemName);
+	}
+
+	private void InitTypes()
+	{
+		myList_Type = FXCollections.observableArrayList();
+
+		AddType("Bagal Khisa");
+		AddType("Bagal Khisa - 2");
+		AddType("Aatun Khisa");
+		AddType("Mobile Khisa");
+		AddType("Bigger Plate");
+		AddType("Mothe Cup");
+		AddType("Chirva Pant");
+
+		mycbType.setItems(myList_Type);
+	}
+
+	private void AddType(String typeName)
+	{
+		myList_Type.add(typeName);
+	}
+
+	private boolean ValidateMeasurements()
+	{
+		String item = mycbItem.getValue();
+		String type = mycbType.getValue();
+		String subType = mytfSubType.getText();
+		String measurement = mytaMeasurement.getText();
+
+		if ((item == null) || (type == null) || subType.isEmpty() || measurement.isEmpty())
+		{
+			// TODO: add Pop-up
+			JOptionPane.showMessageDialog(null, "Some fo the fields are empty!");
+			return false;
+		}
+
+		try
+		{
+			Integer.parseInt(mytfQuantity.getText());
+			Integer.parseInt(mytfPrice.getText());
+		}
+		catch (NumberFormatException e)
+		{
+			// TODO: add Pop-up
+			System.out.println("Quantity and Amount should be Integers!");
+			return false;
+		}
+
+		return true;
+	}
+
+	private void ResetMeasurementFields()
+	{
+		mycbItem.getSelectionModel().clearSelection();
+		mycbType.getSelectionModel().clearSelection();
+		mytfSubType.clear();
+		mytaMeasurement.clear();
+		mytfQuantity.clear();
+		mytfPrice.clear();
+	}
+
+	private void AddItem()
+	{
+		String item = mycbItem.getValue();
+		String type = mycbType.getValue();
+		String subType = mytfSubType.getText();
+		String measurement = mytaMeasurement.getText();
+		String str_amount = mytfPrice.getText();
+		String str_quantity = mytfQuantity.getText();
+		int amount = Integer.parseInt(str_amount);
+		int quantity = Integer.parseInt(str_quantity);
+
+		MeasurementDetail md = new MeasurementDetail();
+		md.SetSelectItem(item);
+		md.SetSelectType(type);
+		md.SetSelectSubType(subType);
+		md.SetMeasurement(measurement);
+		md.SetQuantity(amount);
+		md.SetPricePerItem(quantity);
+
+		myMeasurementList.add(md);
+	}
+
+	@FXML
+	private void onAddItembtnPressed()
+	{
+		if (!ValidateMeasurements())
+		{
+			return;
+		}
+
+		AddItem();
+		UpdateTable();
+
+		ResetMeasurementFields();
+	}
+
+	private boolean UpdateMeasurementInDatabase()
+	{
+		DBTable_CustomerMeasurements table = (DBTable_CustomerMeasurements) DB_TableManager.GetInstance()
+				.GetTable(DB_TableNames.CUSTOMER_MEASUREMENTS);
+		boolean success = true;
+		for (MeasurementDetail detail : myMeasurementList)
+		{
+			// TODO: fetch customerId
+			int customerId = 2;
+			String item = detail.GetSelectItem().get();
+			String type = detail.GetSelectType().get();
+			String subType = detail.GetSelectSubType().get();
+			String measurement = detail.GetMeasurement().get();
+			int quantity = detail.GetQuantity().get();
+			int pricePerItem = detail.GetQuantity().get();
+
+			success = table.Insert(customerId, item, type, subType, measurement, pricePerItem, quantity);
+			assert success : "Unable to insert measurements in table: " + table.GetName();
+		}
+
+		if (success)
+		{
+			// TODO: add Pop-up
+			JOptionPane.showMessageDialog(null, "Items added!");
+		}
+
+		return success;
+	}
+
+	private boolean UpdateBalanceInDatabase()
+	{
+
+		DBTable_CustomerBalance table = (DBTable_CustomerBalance) DB_TableManager.GetInstance()
+				.GetTable(DB_TableNames.CUSTOMER_BALANCE);
+
+		// TODO: fetch customerId
+		int customerId = 2;
+		BalanceDetails details = table.GetBalanceDetails(customerId);
+
+		int paidAmount = Integer.parseInt(mytfAmoutPaid.getText());
+		int totalAmount = Integer.parseInt(mylblTotal.getText());
+
+		System.out.println("paid: " + paidAmount + ", total: " + totalAmount);
+		boolean result = false;
+		if (details == null) // does not exist in the CustomerBalanceTable
+		{
+			int pendingAmount = totalAmount - paidAmount;
+			System.out.println("Pending Amount: " + pendingAmount);
+			result = table.Insert(customerId, pendingAmount, totalAmount);
+			assert result : "Unable to add to CustomerBalance";
+			return result;
+		}
+
+		// customer exists in the CustomerBalance table
+		String condition = "CustomerId = " + customerId;
+		int pendingAmount = totalAmount - paidAmount;
+		System.out.println("Pending Amount: " + pendingAmount);
+		System.out.println(
+				"Existing -> (pending: " + details.GetPendingAmount() + ")(total: " + details.GetTotalAmount() + ")");
+		result |= table.UpdateAttribute("PendingAmount", pendingAmount + details.GetPendingAmount(), condition);
+		result |= table.UpdateAttribute("TotalAmount", totalAmount + details.GetTotalAmount(), condition);
+
+		return result;
+	}
+
+	@FXML
+	private void onSavebtnPressed()
+	{
+
+		// TODO: add Pop-up
+		int choice = JOptionPane.showConfirmDialog(null, "Save the measurements?");
+
+		switch (choice)
+		{
+		case JOptionPane.YES_OPTION:
+			break;
+		default:
+			return;
+		}
+
+		boolean result = UpdateMeasurementInDatabase();
+		result |= UpdateBalanceInDatabase();
+
+		if (!result)
+		{
+			assert false : "Updation Failed";
+			return;
+		}
+
+		ResetAll();
+	}
+
+	@FXML
+	private void OnAmountPaidChanged()
+	{
+		try
+		{
+			int paidAmount = Integer.parseInt(mytfAmoutPaid.getText());
+			int totalAmount = CalculateTotalPrice();
+			String pendingAmount = Integer.toString(totalAmount - paidAmount);
+			UpdatePendingAmount(pendingAmount);
+		}
+		catch (NumberFormatException nfe)
+		{
+			// TODO: add pop up
+			JOptionPane.showMessageDialog(null, "Enter Valid Amount!");
+		}
+	}
+
+	private void UpdatePendingAmount(String amount)
+	{
+		mylblPending.setText(amount);
+	}
+
+	private void ResetAll()
+	{
+		ResetMeasurementFields();
+	}
+
+	private void UpdateTable()
+	{
+		myMeasurementTableView.setItems(myMeasurementList);
+
+		myTcItem.setCellValueFactory(cellData -> cellData.getValue().GetSelectItem());
+		myTcType.setCellValueFactory(cellData -> cellData.getValue().GetSelectType());
+		myTcSubType.setCellValueFactory(cellData -> cellData.getValue().GetSelectSubType());
+		myTcQuantity.setCellValueFactory(cellData -> cellData.getValue().GetQuantity().asObject());
+		myTcPricePerItem.setCellValueFactory(cellData -> cellData.getValue().GetPricePerItem().asObject());
+		myTcTotalPrice.setCellValueFactory(cellData -> cellData.getValue().getTotalPrice().asObject());
+
+		// set total amount
+		mylblTotal.setText(Integer.toString(CalculateTotalPrice()));
+	}
+
+	private int CalculateTotalPrice()
+	{
+		int totalPrice = 0;
+		for (MeasurementDetail md : myMeasurementList)
+			totalPrice += md.getTotalPrice().get();
+
+		return totalPrice;
+	}
+
+	@FXML
+	private void onClosebtnPressed()
+	{
+		Stage stage = (Stage) mybtnClose.getScene().getWindow();
+		stage.close();
+	}
+
+	private void DeleteItem()
+	{
+		MeasurementDetail detail = myMeasurementTableView.getSelectionModel().getSelectedItem();
+		myMeasurementList.remove(detail);
+	}
+
+	@FXML
+	private void OnDeleteButtonPressed()
+	{
+		// check entries in table
+		if (myMeasurementList.isEmpty())
+		{
+			return;
+		}
+
+		int selectedIndex = myMeasurementTableView.getSelectionModel().getSelectedIndex();
+		if (selectedIndex < 0)
+		{
+			JOptionPane.showMessageDialog(null, "Select an item!");
+			return;
+		}
+
+		// TODO: add Pop-up
+		int choice = JOptionPane.showConfirmDialog(null, "Delete this Measurement?");
+		switch (choice)
+		{
+		case JOptionPane.YES_OPTION:
+			break;
+		default:
+			return;
+		}
+
+		DeleteItem();
+		UpdateTable();
+	}
+
+	public FormType GetType()
+	{
+		return FormType.CUSTOMER_MEASUREMENT_FORM;
+	}
+
+}

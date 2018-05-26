@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" fx:id="acCustomerMainContent" prefHeight="887.0" prefWidth="1295.0" stylesheets="@../../../../../res/style/MainStyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="form.jfx.main.oldCustomer.JFXMLController_OldCustomer">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="887.0" prefWidth="1295.0">
+         <bottom>
+            <HBox alignment="CENTER_RIGHT" prefHeight="69.0" prefWidth="763.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="myAddNewCustomer" buttonType="RAISED" onAction="#OnClickAddCustomer" style="-fx-background-color: #EA5444;" text="Add New Customer" />
+                  <JFXButton fx:id="myUpdateCustomer" onAction="#OnClickUpdateCustomer" style="-fx-background-color: #EA5444;" text="Update" />
+                  <JFXButton fx:id="myDeleteCustomer" onAction="#OnClickDeleteCustomer" style="-fx-background-color: #EA5444;" text="Delete" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+         </bottom>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </BorderPane>
+      <TableView fx:id="myCustomerTableView" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#OnMousePressed" prefHeight="534.0" prefWidth="1241.0" style="-fx-background-color: 0;" AnchorPane.bottomAnchor="73.0" AnchorPane.leftAnchor="49.0">
+        <columns>
+          <TableColumn fx:id="myTcId" minWidth="-1.0" prefWidth="52.0" resizable="false" text="Id" />
+          <TableColumn fx:id="myTcFirstName" prefWidth="118.99996948242188" resizable="false" text="FirstName" />
+            <TableColumn fx:id="myTcLastName" prefWidth="142.0" resizable="false" text="LastName" />
+            <TableColumn fx:id="myTcMobileNo" prefWidth="160.0" resizable="false" text="MobileNo" />
+            <TableColumn fx:id="myTcEmail" prefWidth="176.0" resizable="false" text="Email" />
+            <TableColumn fx:id="myTcAge" prefWidth="91.0" resizable="false" text="Age" />
+            <TableColumn fx:id="myTcGender" prefWidth="114.0" resizable="false" text="Gender" />
+            <TableColumn fx:id="myTcAddress" prefWidth="385.0" resizable="false" text="Address" />
+            
+                                </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="btnRefresh" layoutX="228.0" layoutY="146.0" mnemonicParsing="false" onAction="#OnClickRefreshbtn" prefHeight="32.0" prefWidth="32.0" translateX="1019.0" translateY="70.0" />
+      <TextField fx:id="mySearchTxt" onKeyReleased="#OnKeyPressed" prefHeight="31.0" prefWidth="1129.0" promptText="Search Customer" AnchorPane.bottomAnchor="724.0" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="68.0" />
+   </children>
+</AnchorPane>

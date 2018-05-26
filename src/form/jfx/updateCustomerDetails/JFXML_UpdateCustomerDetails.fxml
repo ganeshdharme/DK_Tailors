@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="form.jfx.updateCustomerDetails.JFXForm_UpdateCustomerDetails">
+   <children>
+      <AnchorPane layoutX="58.0" layoutY="132.0" prefHeight="522.0" prefWidth="558.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="132.0">
+         <children>
+            <VBox layoutX="196.0" layoutY="80.0" prefHeight="522.0" prefWidth="558.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" prefHeight="68.0" prefWidth="279.0" text="First Name :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <JFXTextField fx:id="myTextField_Firstname" alignment="TOP_LEFT" layoutY="34.0" prefHeight="31.0" prefWidth="269.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></JFXTextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" layoutX="122.0" layoutY="24.0" prefHeight="68.0" prefWidth="279.0" text="Last Name :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <JFXTextField fx:id="myTextField_Lastname" alignment="TOP_LEFT" layoutX="23.0" layoutY="37.0" prefHeight="31.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></JFXTextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" layoutX="122.0" layoutY="24.0" prefHeight="68.0" prefWidth="279.0" text="Mobile Number :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <JFXTextField fx:id="myTextField_MobNo" alignment="TOP_LEFT" layoutX="23.0" layoutY="37.0" prefHeight="31.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></JFXTextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" layoutX="122.0" layoutY="24.0" prefHeight="68.0" prefWidth="279.0" text="Address :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <JFXTextField fx:id="myTextField_Address" alignment="TOP_LEFT" layoutX="23.0" layoutY="37.0" prefHeight="31.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></JFXTextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" layoutX="122.0" layoutY="24.0" prefHeight="68.0" prefWidth="279.0" text="Email :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <JFXTextField fx:id="myTextField_Email" alignment="TOP_LEFT" layoutX="23.0" layoutY="37.0" prefHeight="31.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></JFXTextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" layoutX="122.0" layoutY="24.0" prefHeight="68.0" prefWidth="279.0" text="Age :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <JFXTextField fx:id="myTextField_Age" alignment="TOP_LEFT" layoutX="23.0" layoutY="37.0" prefHeight="31.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></JFXTextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" layoutX="122.0" layoutY="24.0" prefHeight="68.0" prefWidth="279.0" text="Gender :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="279.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <JFXRadioButton fx:id="myRadioButton_Male" text="Male">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="myRadioButtonGroup" />
+                                       </toggleGroup>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton fx:id="myRadioButton_Female" text="Female" toggleGroup="$myRadioButtonGroup">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </JFXRadioButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="73.0" prefWidth="558.0">
+                     <children>
+                        <JFXButton fx:id="myButton_Update" layoutX="243.0" layoutY="21.0" onAction="#OnButtonClicked_Update" style="-fx-background-color: #4267B2;" text="Update" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <AnchorPane prefHeight="91.0" prefWidth="712.0" style="-fx-background-color: #4267B2;">
+         <children>
+            <Label fx:id="myLabel_CustomerName" alignment="CENTER" layoutX="272.0" layoutY="35.0" prefHeight="91.0" prefWidth="676.0" text="Customer Full Name" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold Italic" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

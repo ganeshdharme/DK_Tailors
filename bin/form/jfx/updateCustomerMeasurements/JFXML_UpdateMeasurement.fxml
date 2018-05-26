@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="form.jfx.updateCustomerMeasurements.JFXForm_UpdateMeasurement">
+   <children>
+      <AnchorPane layoutX="58.0" layoutY="132.0" prefHeight="522.0" prefWidth="558.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="132.0">
+         <children>
+            <VBox layoutX="196.0" layoutY="80.0" prefHeight="522.0" prefWidth="558.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" prefHeight="70.0" prefWidth="226.0" text="Item :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="70.0" prefWidth="385.0">
+                           <children>
+                              <ComboBox fx:id="myComboBox_Item" layoutX="14.0" layoutY="40.0" prefHeight="25.0" prefWidth="287.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" layoutX="122.0" layoutY="24.0" prefHeight="68.0" prefWidth="279.0" text="Type :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="75.0" prefWidth="381.0">
+                           <children>
+                              <ComboBox fx:id="myComboBox_Type" layoutX="14.0" layoutY="40.0" prefHeight="25.0" prefWidth="287.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" layoutX="122.0" layoutY="24.0" prefHeight="68.0" prefWidth="237.0" text="Sub-Type :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="362.0">
+                           <children>
+                              <JFXTextField fx:id="myTextField_SubType" alignment="TOP_LEFT" layoutX="23.0" layoutY="37.0" prefHeight="31.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="37.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></JFXTextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="168.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="168.0" prefWidth="238.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="105.0" layoutY="101.0" prefHeight="168.0" prefWidth="238.0" text="Measurement :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="168.0" prefWidth="279.0">
+                           <children>
+                              <JFXTextArea fx:id="myTextArea_Measurement" layoutX="4.0" layoutY="23.0" prefHeight="143.0" prefWidth="272.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="23.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></JFXTextArea>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" disable="true" layoutX="1.0" prefHeight="68.0" prefWidth="237.0" text="Quantity :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="362.0">
+                           <children>
+                              <JFXTextField fx:id="myTextField_Quantity" alignment="TOP_LEFT" disable="true" layoutX="23.0" layoutY="37.0" prefHeight="31.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="37.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></JFXTextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="558.0">
+                     <children>
+                        <AnchorPane prefHeight="68.0" prefWidth="279.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" disable="true" layoutX="122.0" layoutY="24.0" prefHeight="68.0" prefWidth="237.0" text="Price (per item) :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="68.0" prefWidth="362.0">
+                           <children>
+                              <JFXTextField fx:id="myTextField_PricePerItem" alignment="TOP_LEFT" disable="true" layoutX="23.0" layoutY="37.0" prefHeight="31.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="37.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></JFXTextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="90.0" prefWidth="570.0">
+                     <children>
+                        <JFXButton fx:id="myButton_UpdateMeasurement" layoutX="203.0" layoutY="24.0" onAction="#OnButtonClicked_UpdateMeasurement" style="-fx-background-color: #4267B2;" text="Update Measurement" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <AnchorPane prefHeight="91.0" prefWidth="676.0" style="-fx-background-color: #4267B2;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="myLabel_CustomerName" alignment="CENTER" layoutX="-14.0" prefHeight="91.0" prefWidth="689.0" text="Customer Full Name" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold Italic" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

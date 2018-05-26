@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="913.0" prefWidth="1291.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="form.jfx.main.JFXForm_Main">
+   <children>
+      <AnchorPane id="myAnchorPane_Center" layoutY="102.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="578.0" prefWidth="1094.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
+         <children>
+            <AnchorPane layoutX="-6.0" layoutY="-4.0" prefHeight="584.0" prefWidth="200.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-6.0" AnchorPane.topAnchor="-4.0">
+               <children>
+                  <VBox layoutY="-14.0" prefHeight="584.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <JFXButton fx:id="myButton_Home" alignment="CENTER" contentDisplay="TOP" onAction="#OnButtonClicked_Home" prefHeight="282.0" prefWidth="206.0" style="-fx-background-color: #f0f0f0;" stylesheets="@../../../../res/style/AddButton.css" text="Home">
+                           <graphic>
+                              <ImageView fitHeight="94.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/icons/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Separator prefHeight="28.0" prefWidth="200.0" />
+                        <JFXButton fx:id="myButton_NewCustomer" alignment="CENTER" contentDisplay="TOP" onAction="#OnButtonClicked_NewCustomer" prefHeight="282.0" prefWidth="206.0" style="-fx-background-color: #f0f0f0;" text="New Customer">
+                           <graphic>
+                              <ImageView fitHeight="94.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/icons/newCusstomer.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Separator prefHeight="28.0" prefWidth="200.0" />
+                        <JFXButton fx:id="myButton_OldCustomers" alignment="CENTER" contentDisplay="TOP" onAction="#OnButtonClicked_OldCustomers" prefHeight="282.0" prefWidth="206.0" style="-fx-background-color: #f0f0f0;" text="Old Customers">
+                           <graphic>
+                              <ImageView fitHeight="94.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/icons/oldCustomers.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Separator prefHeight="28.0" prefWidth="200.0" />
+                        <JFXButton fx:id="myButton_Search" alignment="CENTER" contentDisplay="TOP" onAction="#OnButtonClicked_Search" prefHeight="282.0" prefWidth="206.0" style="-fx-background-color: #f0f0f0;" text="Search">
+                           <graphic>
+                              <ImageView fitHeight="94.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/icons/search.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="myAnchorPane_Center" layoutX="194.0" prefHeight="578.0" prefWidth="900.0" style="-fx-background-color: #d0d0d0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane fx:id="myAnchorPane_NewCustomer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutX="10.0" layoutY="10.0" prefHeight="575.0" prefWidth="921.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <VBox prefHeight="660.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <AnchorPane prefHeight="41.0" prefWidth="467.0" />
+                                          <AnchorPane prefHeight="82.0" prefWidth="467.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefHeight="87.0" prefWidth="224.0" text="*First Name :" HBox.hgrow="ALWAYS">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="myTextField_NewCustomer_Firstname" prefHeight="30.0" prefWidth="232.0">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="82.0" prefWidth="467.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefHeight="87.0" prefWidth="224.0" text="*Last Name :">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="myTextField_NewCustomer_Lastname" prefHeight="32.0" prefWidth="233.0">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="82.0" prefWidth="467.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefHeight="87.0" prefWidth="224.0" text="*Mobile Number :">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="myTextField_NewCustomer_MobNo" prefHeight="26.0" prefWidth="233.0">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="82.0" prefWidth="467.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefHeight="87.0" prefWidth="224.0" text="Address :">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="myTextField_NewCustomer_Address" prefHeight="31.0" prefWidth="233.0">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="82.0" prefWidth="467.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefHeight="87.0" prefWidth="224.0" text="Email : ">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="myTextField_NewCustomer_Email" prefHeight="19.0" prefWidth="233.0">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="82.0" prefWidth="467.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefHeight="87.0" prefWidth="224.0" text="Age : ">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="myTextField_NewCustomer_Age" prefHeight="33.0" prefWidth="232.0">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="82.0" prefWidth="467.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefHeight="87.0" prefWidth="224.0" text="*Gender :">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXRadioButton fx:id="myRadioButton_NewCustomer_Male" prefHeight="81.0" prefWidth="151.0" text="Male" />
+                                                      <JFXRadioButton fx:id="myRadioButton_NewCustomer_Female" prefHeight="81.0" prefWidth="146.0" text="Female" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="59.0" prefWidth="467.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="445.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <JFXButton fx:id="myButton_NewCustomer" onAction="#OnButtonClicked_NewCustomer_AddCustomer" style="-fx-background-color: #4267B2;" text="Add Customer" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </JFXButton>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="myAnchorPane_NewCustomer_ImageView" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="576.0" prefWidth="445.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <ImageView fx:id="myImageView_NewCustomer" fitHeight="444.0" fitWidth="445.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@/images/new_customer.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="myAnchorPane_Search" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <SplitPane dividerPositions="0.4812785388127854" layoutX="319.0" layoutY="175.0" prefHeight="704.0" prefWidth="906.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <JFXTextField fx:id="myTextField_Search" alignment="CENTER" layoutX="14.0" layoutY="23.0" onAction="#OnTextFieldChanged_Search" onKeyReleased="#OnTextFieldChanged_Search" prefHeight="25.0" prefWidth="402.0" promptText="Search" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font></JFXTextField>
+                                    <SplitPane dividerPositions="0.5" layoutX="5.0" layoutY="65.0" orientation="VERTICAL" prefHeight="637.0" prefWidth="423.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0">
+                                       <items>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <TableView fx:id="myTableView_Search_CustomerDetails" layoutX="10.0" layoutY="10.0" onMouseClicked="#OnClicked_Search_CustomerDetails" prefHeight="251.0" prefWidth="343.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="myTableColumn_Search_CustomerId" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Id" visible="false" />
+                                                      <TableColumn fx:id="myTableColumn_Search_FirstName" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="FirstName" />
+                                                      <TableColumn fx:id="myTableColumn_Search_LastName" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="LastName" />
+                                                      <TableColumn fx:id="myTableColumn_Search_MobNo" prefWidth="146.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Mobile Number" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="421.0">
+                                             <children>
+                                                <AnchorPane layoutX="-10.0" layoutY="-46.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="480.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <VBox prefHeight="385.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER" prefHeight="273.0" prefWidth="454.0">
+                                                               <children>
+                                                                  <VBox prefHeight="248.0" prefWidth="184.0">
+                                                                     <children>
+                                                                        <Label fx:id="myLabel_Email" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Email: ">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="18.0" />
+                                                                           </font></Label>
+                                                                        <Label fx:id="myLabel_Address" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Address:">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="18.0" />
+                                                                           </font></Label>
+                                                                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Age:">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="18.0" />
+                                                                           </font></Label>
+                                                                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Gender:">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="18.0" />
+                                                                           </font></Label>
+                                                                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Total Amount:">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="18.0" />
+                                                                           </font></Label>
+                                                                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Paid Amount:">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Pending Amount:">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="18.0" />
+                                                                           </font></Label>
+                                                                     </children>
+                                                                     <HBox.margin>
+                                                                        <Insets top="10.0" />
+                                                                     </HBox.margin>
+                                                                  </VBox>
+                                                                  <VBox prefHeight="400.0" prefWidth="297.0">
+                                                                     <children>
+                                                                        <Label fx:id="myLabel_Search_Email" alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="-">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font></Label>
+                                                                        <Label fx:id="myLabel_Search_Address" alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="-">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font></Label>
+                                                                        <Label fx:id="myLabel_Search_Age" alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="-">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font></Label>
+                                                                        <Label fx:id="myLabel_Search_Gender" alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="-">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font></Label>
+                                                                        <Label fx:id="myLabel_Search_TotalAmount" alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="-" textFill="#ae0b0b">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="myLabel_Search_PaidAmount" alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="-" textFill="#ae0b0b">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="myLabel_Search_PendingAmount" alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="-" textFill="#ae0b0b">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font></Label>
+                                                                     </children>
+                                                                     <HBox.margin>
+                                                                        <Insets top="10.0" />
+                                                                     </HBox.margin>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <JFXButton fx:id="myButton_Search_ReceiveAmount" onAction="#OnButtonClicked_Search_ReceiveAmount" style="-fx-background-color: #4267B2;" text="Receive Amount" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="15.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </HBox.margin>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="myButton_Search_AddPendingAmount" onAction="#OnButtonClicked_Search_AddPendingAmount" style="-fx-background-color: #4267B2;" text="Add Pending Amount" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="15.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </HBox.margin>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="myButton_Search_UpdateCustomerDetails" onAction="#OnButtonClicked_Search_UpdateCustomerDetails" style="-fx-background-color: #4267B2;" text="Update Details" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="15.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </HBox.margin>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="myButton_Search_DeleteCustomer" onAction="#OnButtonClicked_Search_DeleteCustomer" style="-fx-background-color: #4267B2;" text="Delete Customer" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="15.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </HBox.margin>
+                                                                  </JFXButton>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="114.0" layoutY="61.0" prefHeight="702.0" prefWidth="538.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="myTableView_Search_CustomerMeasurements" onMouseClicked="#OnClicked_Search_TableView_CustomerMeasurement" prefHeight="251.0" prefWidth="343.0" VBox.vgrow="SOMETIMES">
+                                             <columns>
+                                                <TableColumn fx:id="myTableColumn_Search_Measurement_Item" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Item" />
+                                                <TableColumn fx:id="myTableColumn_Search_Measurement_Type" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Type" />
+                                                <TableColumn fx:id="myTableColumn_Search_Measurement_SubType" prefWidth="102.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Sub-Type" />
+                                                <TableColumn fx:id="myTableColumn_Search_Measurement_Measurement" prefWidth="165.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Measurement" />
+                                                <TableColumn fx:id="myTableColumn_Search_Measurement_Quantity" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Quantity" />
+                                                <TableColumn fx:id="myTableColumn_Search_Measurement_PricePerItem" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Price" />
+                                                <TableColumn fx:id="myTableColumn_Search_Measurement_Total" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Total" />
+                                                <TableColumn fx:id="myTableColumn_Search_Measurement_Status" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Status" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </TableView>
+                                          <HBox alignment="CENTER" prefHeight="96.0" prefWidth="538.0">
+                                             <children>
+                                                <JFXButton fx:id="myButton_Search_UpdateMeasurement" onAction="#OnButtonClicked_Search_UpdateMeasurement" style="-fx-background-color: #4267B2;" text="Update Measurement" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="100.0" />
+                                                   </HBox.margin>
+                                                </JFXButton>
+                                                <JFXButton fx:id="myButton_Search_DeleteMeasurement" onAction="#OnButtonClicked_Search_DeleteMeasurement" style="-fx-background-color: #4267B2;" text="Delete Measurement" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="100.0" />
+                                                   </HBox.margin>
+                                                </JFXButton>
+                                                <JFXButton fx:id="myButton_Search_AddMeasurement" onAction="#OnButtonClicked_Search_AddMeasurement" style="-fx-background-color: #4267B2;" text="Add Measurement" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </HBox.margin>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+                  <StackPane fx:id="myStackPane_OldCustomers" prefHeight="578.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <AnchorPane prefHeight="69.0" prefWidth="1097.0">
+                                 <children>
+                                    <JFXTextField fx:id="myTextField_OldCustomers_Search" alignment="CENTER" onAction="#OnTextFieldChanged_OldCustomers_Search" onKeyReleased="#OnTextFieldChanged_OldCustomers_Search" prefHeight="69.0" prefWidth="1097.0" promptText="Search" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="20.0">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                              </AnchorPane>
+                              <TableView fx:id="myTableView_OldCustomers" onMouseClicked="#OnMouseClicked_OldCustomers_TableView" prefHeight="420.0" prefWidth="784.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="myTableColumn_OldCustomers_FirstName" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="FirstName" />
+                                    <TableColumn fx:id="myTableColumn_OldCustomers_LastName" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="LastName" />
+                                    <TableColumn fx:id="myTableColumn_OldCustomers_MobNo" prefWidth="146.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Mobile Number" />
+                                    <TableColumn fx:id="myTableColumn_OldCustomers_Email" prefWidth="159.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Email" />
+                                    <TableColumn fx:id="myTableColumn_OldCustomers_Address" prefWidth="69.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Address" />
+                                    <TableColumn fx:id="myTableColumn_OldCustomers_Age" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Age" />
+                                    <TableColumn fx:id="myTableColumn_OldCustomers_Gender" prefWidth="75.0" style="-fx-font-size: 18; -fx-alignment: CENTER;" text="Gender" />
+                                 </columns>
+                                 <VBox.margin>
+                                    <Insets bottom="50.0" left="50.0" right="50.0" top="20.0" />
+                                 </VBox.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <HBox alignment="TOP_RIGHT" prefHeight="77.0" prefWidth="900.0">
+                                 <children>
+                                    <JFXButton fx:id="myButton_OldCustomers_Update" onAction="#OnButtonClicked_OldCustomers_Update" prefHeight="44.0" prefWidth="200.0" style="-fx-background-color: #4267B2;" text="Update Customer Details" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="50.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton fx:id="myButton_OldCustomers_Delete" onAction="#OnButtonClicked_OldCustomers_Delete" prefHeight="44.0" prefWidth="147.0" style="-fx-background-color: #4267B2;" text="Delete Customer" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="50.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton fx:id="myButton_OldCustomers_AddMeasurement" onAction="#OnButtonClicked_OldCustomers_AddMeasurement" prefHeight="44.0" prefWidth="158.0" style="-fx-background-color: #4267B2;" text="Add Measurement" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="50.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton fx:id="myButton_OldCustomers_ViewTransactions" onAction="#OnButtonClicked_OldCustomers_ViewTransactions" prefHeight="44.0" prefWidth="200.0" style="-fx-background-color: #4267B2;" text="View Transactions" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+                  <AnchorPane fx:id="myAnchorPane_Home" prefHeight="578.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="578.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="261.0" prefWidth="900.0">
+                                 <children>
+                                    <Label prefHeight="96.0" prefWidth="702.0" text="Shree Lingeshwar Prasanna" textFill="#750665">
+                                       <font>
+                                          <Font name="Lucida Calligraphy Italic" size="45.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="44.0" prefWidth="654.0" text="Address : AT/Post : Puluj, Tal : Pandharpur, District : Solapur" textFill="#862929">
+                                       <font>
+                                          <Font name="System Bold Italic" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="44.0" prefWidth="550.0" text="Mobile Number : 9637525257" textFill="#12400c">
+                                       <font>
+                                          <Font name="System Bold Italic" size="19.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <AnchorPane prefHeight="78.0" prefWidth="900.0">
+                                 <children>
+                                    <JFXButton fx:id="myButton_Home_ChangeImage" layoutX="805.0" layoutY="10.0" onAction="#OnButtonClicked_Home_ChangeImage" style="-fx-background-color: #4267B2;" text="Change Image" textFill="WHITE" AnchorPane.rightAnchor="100.0">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="myAnchorPane_Home_ImageView" prefHeight="411.0" prefWidth="1091.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <StackPane fx:id="myStackPane_ImageView_Home" prefHeight="435.0" prefWidth="1097.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <ImageView fx:id="myImageView_Home" fitHeight="435.0" fitWidth="1097.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="102.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="1094.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="194.0" layoutY="1.0" prefHeight="102.0" prefWidth="1094.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="myLabel_Tailor" alignment="CENTER" prefHeight="102.0" prefWidth="1094.0" style="-fx-background-color: #4267B2;" text="Welcome to RK Tailors" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Forte" size="52.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="myAnchorPane_Bottom" fx:id="myAnchorPane_Bottom" layoutY="678.0" prefHeight="39.0" prefWidth="1094.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" layoutX="479.0" layoutY="6.0" prefHeight="40.0" prefWidth="1094.0" style="-fx-background-color: #4267B2;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

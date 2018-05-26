@@ -1,0 +1,121 @@
+package database.table;
+
+import java.sql.ResultSet;
+import java.util.LinkedList;
+
+import database.Database;
+import database.db_manager.DatabaseManager;
+
+public class DBTable
+{
+	protected LinkedList<DB_Attribute> myAttributes;
+	protected String myName;
+
+	public DBTable(String name)
+	{
+		myName = name;
+		myAttributes = new LinkedList<DB_Attribute>();
+		Init();
+		CreateTable();
+	}
+
+	protected void Init()
+	{
+	}
+
+	protected void AddAttribute(String attribute)
+	{
+		myAttributes.add(new DB_Attribute(attribute));
+	}
+
+	public boolean UpdateAttribute(String attribName, String attribValue, String condition)
+	{
+		String sql = "update " + myName + " set " + attribName + " = " + "'" + attribValue + "' ";
+		if (condition != null && condition != "")
+			sql += "where " + condition;
+		sql += ";";
+
+		boolean result = ExecuteUpdate(sql);
+		assert (result) : "Failed to Update Attribute: " + attribName + " with value: " + attribValue
+				+ " and condition: " + condition;
+
+		return result;
+	}
+
+	public boolean UpdateAttribute(String attribName, long attribValue, String condition)
+	{
+		return UpdateAttribute(attribName, Long.toString(attribValue), condition);
+	}
+
+	public void CreateTable()
+	{
+		assert ExecuteUpdate(GetTableCreationQuery()) : "Failed to create Table: " + myName;
+	}
+
+	public void DeleteTable()
+	{
+		assert ExecuteUpdate("drop table " + myName + ";") : "Failed to create Table: " + myName;
+	}
+
+	protected boolean Insert(String sql)
+	{
+		return ExecuteUpdate(sql);
+	}
+
+	public boolean DeleteRecord(String condition)
+	{
+		String sql = "delete from " + myName + " where " + condition + ";";
+		ExecuteUpdate(sql);
+		return true;
+	}
+
+	public ResultSet GetRecords(String condition, int startIndex, int numRecords)
+	{
+		String sql = "select * from " + myName;
+		if (condition != null && condition != "")
+		{
+			sql += " where " + condition;
+		}
+		if (numRecords != 0)
+		{
+			sql += " limit " + startIndex + ", " + numRecords;
+		}
+		sql += ";";
+		return ExecuteQuery(sql);
+	}
+
+	public ResultSet ExecuteQuery(String sql)
+	{
+		Database db = DatabaseManager.GetInstance().GetDatabase();
+		return db.ExecuteQuery(sql);
+	}
+
+	public boolean ExecuteUpdate(String sql)
+	{
+		Database db = DatabaseManager.GetInstance().GetDatabase();
+		if (!db.ExecuteUpdate(sql))
+			return false;
+		return true;
+	}
+
+	protected String GetTableCreationQuery()
+	{
+		String query = "create table if not exists " + myName + " (";
+		int size = myAttributes.size();
+		for (int i = 0; i < size - 1; i++)
+		{
+			DB_Attribute attribute = myAttributes.get(i);
+			query += attribute.GetName() + ",";
+		}
+		query += myAttributes.get(size - 1).GetName();
+		query += " );";
+
+		return query;
+	}
+
+	public String GetName()
+	{
+		return myName;
+	}
+
+}

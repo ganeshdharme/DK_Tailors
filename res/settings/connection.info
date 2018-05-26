@@ -1,0 +1,5 @@
+host:RK_Tailor
+port:3306
+database:DB_RK_Tailor
+username:root
+password:Admin

@@ -1,0 +1,142 @@
+package parser.sqlConnection;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DB_ConnectionSettingsParser
+{
+
+	private File myFile;
+	private boolean myIsFileParsed;
+	private boolean myIsFileUpdated;
+	private List<DB_ConnectionSettingsAttribute> myAttributes;
+
+	public DB_ConnectionSettingsParser(String filename)
+	{
+		myFile = new File(filename);
+		myAttributes = new ArrayList<DB_ConnectionSettingsAttribute>();
+		myIsFileParsed = false;
+		myIsFileUpdated = false;
+
+		Parse();
+	}
+
+	public void Parse()
+	{
+		try
+		{
+			if (myFile.exists())
+			{
+				FileReader reader = new FileReader(myFile);
+				BufferedReader bufferedReader = new BufferedReader(reader);
+
+				String line = "";
+				while ((line = bufferedReader.readLine()) != null)
+				{
+					String[] splits = line.split(":");
+					String key = splits[0];
+					String value = splits[1];
+
+					myAttributes.add(new DB_ConnectionSettingsAttribute(key, value));
+				}
+
+				bufferedReader.close();
+			}
+			else
+			{
+				assert false : myFile.getName() + ": File does not exist!";
+			}
+
+			myIsFileParsed = true;
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+
+		PrintAttributes();
+	}
+
+	public String GetSettingsFileName()
+	{
+		return myFile.getName();
+	}
+
+	public String GetAttributeValue(String key)
+	{
+		DB_ConnectionSettingsAttribute attrib = GetAttribute(key);
+		assert (attrib != null) : "Invalid Attribute!";
+
+		return attrib.GetValue();
+	}
+
+	private void PrintAttributes()
+	{
+		assert myIsFileParsed : "File not parsed!";
+
+		for (int i = 0; i < myAttributes.size(); i++)
+		{
+			DB_ConnectionSettingsAttribute attribute = myAttributes.get(i);
+			System.out.println("Key: " + attribute.GetKey() + ", Value: " + attribute.GetValue());
+		}
+	}
+
+	public void UpdateSettingsFile()
+	{
+		assert myIsFileParsed : "File not Parsed!";
+
+		if (!myIsFileUpdated)
+			return;
+
+		try
+		{
+			FileWriter writer = new FileWriter(myFile);
+			for (DB_ConnectionSettingsAttribute attrib : myAttributes)
+			{
+				writer.write(attrib.ToString() + "\n");
+			}
+			writer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+
+		myIsFileUpdated = false;
+	}
+
+	public void UpdateAttribute(String key, String value)
+	{
+		assert myIsFileParsed : "File not Parsed!";
+
+		DB_ConnectionSettingsAttribute attrib = GetAttribute(key);
+		assert (attrib != null) : "Invalid attribute";
+
+		attrib.SetValue(value);
+		myIsFileUpdated = true;
+	}
+
+	private DB_ConnectionSettingsAttribute GetAttribute(String key)
+	{
+		assert myIsFileParsed : "File not Parsed!";
+
+		for (DB_ConnectionSettingsAttribute attrib : myAttributes)
+		{
+			if (attrib.GetKey().equals(key))
+				return attrib;
+		}
+
+		return null;
+	}
+
+}

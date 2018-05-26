@@ -1,0 +1,344 @@
+package form.jfx.main;
+
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import form.jfx.JFXForm;
+import javafx.animation.TranslateTransition;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
+public class JFXForm_Main extends JFXForm implements Initializable
+{
+
+	@FXML private StackPane acContent;
+	@FXML private ScrollPane leftSideBarScroolPan;
+	@FXML private ToggleButton sideMenuToogleBtn;
+	@FXML private ImageView imgMenuBtn;
+	@FXML private BorderPane appContent;
+	@FXML private Button btnLogOut;
+	@FXML private MenuItem miPopOver;
+	@FXML private AnchorPane acDashBord;
+	@FXML private AnchorPane acHead;
+	@FXML private AnchorPane acMain;
+	@FXML private MenuButton mbtnUsrInfoBox;
+	@FXML private Button btnHome;
+	@FXML private ImageView imgHomeBtn;
+	@FXML private Button btnNewCustomer;
+	@FXML private ImageView imgnewCustbtn;
+	@FXML private Button btnSearch;
+	@FXML private ImageView imgSearchBtn;
+	@FXML private Button btnOldCust;
+	@FXML private ImageView imgOldcustBtn;
+	@FXML private Button btnSettings;
+	@FXML private ImageView imgSettingsBtn;
+	@FXML private Button btnAbout;
+	@FXML private ImageView imgAboutBtn;
+	@FXML private Label lblUsrName;
+	@FXML private Label lblUsrNamePopOver;
+	@FXML private Label lblFullName;
+	@FXML private Label lblRoleAs;
+	@FXML private Hyperlink hlEditUpdateAccount;
+	@FXML private Circle imgUsrTop;
+	@FXML private Circle circleImgUsr;
+	@FXML private Label lblUserId;
+
+	public JFXForm_Main()
+	{
+	}
+
+	public JFXForm_Main(String fxmlPath)
+	{
+		super(fxmlPath);
+	}
+
+	Image menuImage = new Image("/icons/menu.png");
+	Image menuImageRed = new Image("/icons/menuRed.png");
+	Image image;
+
+	String defultStyle = "-fx-border-width: 0px 0px 0px 5px;" + "-fx-border-color:none";
+
+	String activeStyle = "-fx-border-width: 0px 0px 0px 5px;" + "-fx-border-color:#FF4E3C";
+
+	Image home = new Image("/icons/home.png");
+	Image homeRed = new Image("/icons/homeRed.png");
+	Image search = new Image("/icons/search512b.png");
+	Image searchRed = new Image("/icons/search512.png");
+	Image oldCust = new Image("/icons/sell.png");
+	Image oldCustRed = new Image("/icons/sellRed.png");
+	Image employee = new Image("/icons/employe.png");
+	Image employeeRed = new Image("/icons/employeRed.png");
+	Image setting = new Image("/icons/settings.png");
+	Image settingRed = new Image("/icons/settingsRed.png");
+	Image about = new Image("/icons/about.png");
+	Image aboutRed = new Image("/icons/aboutRed.png");
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources)
+	{
+		// TODO Auto-generated method stub
+		imgMenuBtn.setImage(menuImage);
+		Image usrImg = new Image("/images/rifat.jpg");
+
+		imgUsrTop.setFill(new ImagePattern(usrImg));
+		circleImgUsr.setFill(new ImagePattern(usrImg));
+
+		homeActive();
+
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		try
+		{
+			fxmlLoader.load(getClass().getResource(JFXML_Names.FXML_HOME).openStream());
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		AnchorPane root = fxmlLoader.getRoot();
+		acContent.getChildren().clear();
+		acContent.getChildren().add(root);
+	}
+
+	@FXML
+	private void sideMenuToogleBtnOnCLick(ActionEvent event) throws IOException
+	{
+		if (sideMenuToogleBtn.isSelected())
+		{
+			imgMenuBtn.setImage(menuImageRed);
+			TranslateTransition sideMenu = new TranslateTransition(Duration.millis(200.0), acDashBord);
+			sideMenu.setByX(-130);
+			sideMenu.play();
+			acDashBord.getChildren().clear();
+		}
+		else
+		{
+			imgMenuBtn.setImage(menuImage);
+			TranslateTransition sideMenu = new TranslateTransition(Duration.millis(200.0), acDashBord);
+			sideMenu.setByX(130);
+			sideMenu.play();
+			acDashBord.getChildren().add(leftSideBarScroolPan);
+		}
+	}
+
+	@FXML
+	private void KeyEventHandler(KeyEvent event)
+	{
+		if (event.getCode() == KeyCode.F11)
+		{
+			myStage = (Stage) acMain.getScene().getWindow();
+			SetFullScreen(true);
+		}
+	}
+
+	@FXML
+	private void acMainOnMouseMove(MouseEvent event)
+	{
+	}
+
+	@FXML
+	private void OnHomebtnPressed()
+	{
+
+		homeActive();
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		try
+		{
+			fxmlLoader.load(getClass().getResource("/form/jfx/main/home/Home.fxml").openStream());
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		AnchorPane root = fxmlLoader.getRoot();
+		acContent.getChildren().clear();
+		acContent.getChildren().add(root);
+
+		System.out.println(lblUsrName.getText());
+		System.out.println(lblUserId.getText());
+	}
+
+	@FXML
+	private void OnOldCustomerSelected()
+	{
+		OldCustomerActive();
+		try
+		{
+			FXMLLoader fXMLLoader = new FXMLLoader();
+			fXMLLoader
+					.load(getClass().getResource("/form/jfx/main/oldCustomer/JFXMLForm_OldCustomer.fxml").openStream());
+
+			AnchorPane acPane = fXMLLoader.getRoot();
+			acPane.getStylesheets().add(getClass().getResource("../../../../res/style/MainStyle.css").toExternalForm());
+			acContent.getChildren().clear();
+			acContent.getChildren().add(acPane);
+
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+
+	@FXML
+	private void OnNewCustomerbtnPressed()
+	{
+		employeeActive();
+		try
+		{
+			FXMLLoader fXMLLoader = new FXMLLoader();
+			fXMLLoader
+					.load(getClass().getResource("/form/jfx/main/newCustomer/JFXMLForm_NewCustomer.fxml").openStream());
+
+			AnchorPane acPane = fXMLLoader.getRoot();
+			acPane.getStylesheets().add(getClass().getResource("../../../../res/style/MainStyle.css").toExternalForm());
+			acContent.getChildren().clear();
+			acContent.getChildren().add(acPane);
+
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+
+	@FXML
+	private void OnSearchCustomer()
+	{
+		SearchCustomerActive();
+		try
+		{
+			FXMLLoader fXMLLoader = new FXMLLoader();
+			fXMLLoader.load(getClass().getResource("/form/jfx/main/search/JFXMLForm_SearchCustomer.fxml").openStream());
+
+			AnchorPane acPane = fXMLLoader.getRoot();
+			acPane.getStylesheets().add(getClass().getResource("../../../../res/style/MainStyle.css").toExternalForm());
+			acContent.getChildren().clear();
+			acContent.getChildren().add(acPane);
+
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+
+	}
+
+	private void homeActive()
+	{
+		imgHomeBtn.setImage(homeRed);
+		imgnewCustbtn.setImage(employee);
+		imgOldcustBtn.setImage(oldCust);
+		imgSearchBtn.setImage(search);
+		imgSettingsBtn.setImage(setting);
+		imgAboutBtn.setImage(about);
+		btnHome.setStyle(activeStyle);
+		btnNewCustomer.setStyle(defultStyle);
+		btnOldCust.setStyle(defultStyle);
+		btnSearch.setStyle(defultStyle);
+		btnSettings.setStyle(defultStyle);
+		btnAbout.setStyle(defultStyle);
+	}
+
+	private void SearchCustomerActive()
+	{
+		imgHomeBtn.setImage(home);
+		imgnewCustbtn.setImage(employee);
+		imgOldcustBtn.setImage(oldCust);
+		imgSearchBtn.setImage(searchRed);
+		imgSettingsBtn.setImage(setting);
+		imgAboutBtn.setImage(about);
+		btnHome.setStyle(defultStyle);
+		btnNewCustomer.setStyle(defultStyle);
+		btnOldCust.setStyle(defultStyle);
+		btnSearch.setStyle(activeStyle);
+		btnSettings.setStyle(defultStyle);
+		btnAbout.setStyle(defultStyle);
+	}
+
+	private void OldCustomerActive()
+	{
+		imgHomeBtn.setImage(home);
+		imgnewCustbtn.setImage(employee);
+		imgOldcustBtn.setImage(oldCustRed);
+		imgSearchBtn.setImage(search);
+		imgSettingsBtn.setImage(setting);
+		imgAboutBtn.setImage(about);
+		btnHome.setStyle(defultStyle);
+		btnNewCustomer.setStyle(defultStyle);
+		btnOldCust.setStyle(activeStyle);
+		btnSearch.setStyle(defultStyle);
+		btnSettings.setStyle(defultStyle);
+		btnAbout.setStyle(defultStyle);
+	}
+
+	private void employeeActive()
+	{
+		imgHomeBtn.setImage(home);
+		imgnewCustbtn.setImage(employeeRed);
+		imgOldcustBtn.setImage(oldCust);
+		imgSearchBtn.setImage(search);
+		imgSettingsBtn.setImage(setting);
+		imgAboutBtn.setImage(about);
+		btnHome.setStyle(defultStyle);
+		btnNewCustomer.setStyle(activeStyle);
+		btnOldCust.setStyle(defultStyle);
+		btnSearch.setStyle(defultStyle);
+		btnSettings.setStyle(defultStyle);
+		btnAbout.setStyle(defultStyle);
+	}
+
+	private void settingsActive()
+	{
+		imgHomeBtn.setImage(home);
+		imgnewCustbtn.setImage(search);
+		imgOldcustBtn.setImage(oldCust);
+		imgSearchBtn.setImage(employee);
+		imgSettingsBtn.setImage(settingRed);
+		imgAboutBtn.setImage(about);
+		btnHome.setStyle(defultStyle);
+		btnNewCustomer.setStyle(defultStyle);
+		btnOldCust.setStyle(defultStyle);
+		btnSearch.setStyle(defultStyle);
+		btnSettings.setStyle(activeStyle);
+		btnAbout.setStyle(defultStyle);
+	}
+
+	private void aboutActive()
+	{
+		imgHomeBtn.setImage(home);
+		imgnewCustbtn.setImage(search);
+		imgOldcustBtn.setImage(oldCust);
+		imgSearchBtn.setImage(employee);
+		imgSettingsBtn.setImage(setting);
+		imgAboutBtn.setImage(aboutRed);
+		btnHome.setStyle(defultStyle);
+		btnNewCustomer.setStyle(defultStyle);
+		btnOldCust.setStyle(defultStyle);
+		btnSearch.setStyle(defultStyle);
+		btnSettings.setStyle(defultStyle);
+		btnAbout.setStyle(activeStyle);
+	}
+
+}

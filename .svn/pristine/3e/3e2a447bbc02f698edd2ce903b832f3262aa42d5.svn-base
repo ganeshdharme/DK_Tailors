@@ -1,0 +1,68 @@
+package form.manager;
+
+import java.util.HashMap;
+
+import form.jfx.JFXForm;
+import form.jfx.JFXForm.FormType;
+import form.jfx.customerMeasurement.JFXForm_NewMeasurement;
+import form.jfx.main.JFXForm_Main;
+import javafx.stage.Stage;
+
+// singleton
+public class FormManager
+{
+	private HashMap<FormType, JFXForm> myForms;
+
+	private Stage myPrimaryStage;
+	private static FormManager myInstance = null;
+
+	public FormManager()
+	{
+	}
+
+	public void Init()
+	{
+		myForms = new HashMap<FormType, JFXForm>();
+		JFXForm form = new JFXForm_Main("/form/jfx/main/JFXML_Main.fxml");
+		form.SetMaximized(true);
+		form.Show();
+
+		// AddForm(new
+		// JFXForm_NewMeasurement("/form/jfx/customerMeasurement/JFXMLForm_NewMeasurement.fxml"));
+	}
+
+	public void AddForm(JFXForm newForm)
+	{
+		FormType type = newForm.GetType();
+		myForms.put(type, newForm);
+	}
+
+	public void ShowForm(FormType type)
+	{
+		myForms.get(type).Show();
+	}
+
+	public void HideForm(FormType type)
+	{
+		myForms.get(type).Hide();
+	}
+
+	public void SetPrimaryStage(Stage primaryStage)
+	{
+		myPrimaryStage = primaryStage;
+	}
+
+	public Stage GetPrimaryStage()
+	{
+		return myPrimaryStage;
+	}
+
+	public static FormManager GetInstance()
+	{
+		if (myInstance == null)
+			myInstance = new FormManager();
+
+		return myInstance;
+	}
+
+}

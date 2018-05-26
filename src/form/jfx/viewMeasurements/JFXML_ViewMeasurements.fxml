@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="1264.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="form.jfx.viewMeasurements.JFXForm_ViewMeasurements">
+   <children>
+      <VBox layoutX="236.0" layoutY="120.0" prefHeight="594.0" prefWidth="819.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="103.0" prefWidth="1264.0" style="-fx-background-color: #4267B2;">
+               <children>
+                  <HBox prefHeight="104.0" prefWidth="1264.0">
+                     <children>
+                        <AnchorPane prefHeight="99.0" prefWidth="744.0">
+                           <children>
+                              <Label fx:id="myLabel_PersonalDetails" alignment="CENTER" layoutX="326.0" layoutY="50.0" prefHeight="146.0" prefWidth="744.0" text="Label" textFill="WHITE" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="34.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="99.0" prefWidth="431.0">
+                           <children>
+                              <Label fx:id="myLabel_PendingAmount" alignment="CENTER" layoutX="147.0" layoutY="55.0" prefHeight="137.0" prefWidth="430.0" text="Label" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="34.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="460.0" prefWidth="987.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="556.0" prefWidth="1264.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="myTableView_MeasurementsDetails" editable="true" prefHeight="488.0" prefWidth="1004.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+                                <columns>
+                                    <TableColumn fx:id="myTableViewColumn__Measurements_Item" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Item" />
+                                  <TableColumn fx:id="myTableViewColumn__Measurements_Type" prefWidth="118.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Type" />
+                                    <TableColumn fx:id="myTableViewColumn_Measurements_Measurement" prefWidth="584.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Measurements" />
+                                  <TableColumn fx:id="myTableViewColumn_Measurements_SubType" prefWidth="182.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="SubType" />
+                                    <TableColumn fx:id="myTableViewColumn_Measurements_Status" minWidth="0.0" prefWidth="182.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Status" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="myTableView_ShirtMeasurements" editable="true" prefHeight="488.0" prefWidth="1004.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+                                 <columns>
+                                    <TableColumn fx:id="myTableViewColumn__Shirt_Measurements_Height" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Height" />
+                                    <TableColumn fx:id="myTableViewColumn__Shirt_Measurements_Chest" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Chest" />
+                                    <TableColumn fx:id="myTableViewColumn__Shirt_Measurements_Front" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Front" />
+                                    <TableColumn fx:id="myTableViewColumn__Shirt_Measurements_Shoulder" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Shoulder" />
+                                    <TableColumn fx:id="myTableViewColumn__Shirt_Measurements_Shai" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Shai" />
+                                    <TableColumn fx:id="myTableViewColumn__Shirt_Measurements_Collar" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Collar" />
+                                    <TableColumn fx:id="myTableViewColumn__Shirt_Measurements_Cup" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Cup" />
+                                    <TableColumn fx:id="myTableViewColumn__Measurements_Item161" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Status" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="myTableView_PantMeasurements" editable="true" prefHeight="488.0" prefWidth="1004.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+                                 <columns>
+                                    <TableColumn fx:id="myTableViewColumn__Pant_Measurements_Height" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Height" />
+                                    <TableColumn fx:id="myTableViewColumn__Pant_Measurements_Waist" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Waist" />
+                                    <TableColumn fx:id="myTableViewColumn__Pant_Measurements_Seat" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Seat" />
+                                    <TableColumn fx:id="myTableViewColumn__Pant_Measurements_Thigh" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Thigh" />
+                                    <TableColumn fx:id="myTableViewColumn__Pant_Measurements_Knee" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Knee" />
+                                    <TableColumn fx:id="myTableViewColumn__Pant_Measurements_Bottom" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Bottom" />
+                                    <TableColumn fx:id="myTableViewColumn__Measurements_Item1611" prefWidth="136.0" style="-fx-font-size: 20; -fx-alignment: CENTER;" text="Status" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="32.0" prefWidth="1004.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

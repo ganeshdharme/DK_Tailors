@@ -1,0 +1,162 @@
+package form.jfx.main.newCustomer;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
+import database.table.DBTable;
+import database.table.DB_TableManager;
+import database.table.customerDetails.DBTable_CustomerDetails;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+public class JFXMLController_NewCustomer implements Initializable
+{
+
+	@FXML public BorderPane bpContent;
+	@FXML private TextField myFirstName;
+	@FXML private TextField myLastName;
+	@FXML private TextField myMobileNo;
+	@FXML private TextField myEmail;
+	@FXML private TextField myAge;
+	@FXML private RadioButton myGender_Male;
+	@FXML private RadioButton myGender_Female;
+	@FXML private TextArea myAddress;
+
+	@FXML private Button myCustomerDetalAdd;
+	@FXML private Button myCustomerMeasurementAdd;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources)
+	{
+	}
+
+	@FXML
+	private void onNewMeasurementSelected()
+	{
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/form/jfx/customerMeasurement/JFXMLForm_NewMeasurement.fxml"));
+		try
+		{
+			fxmlLoader.load();
+			Parent parent = fxmlLoader.getRoot();
+			Scene scene = new Scene(parent);
+			scene.setFill(new Color(0, 0, 0, 0));
+			Stage nStage = new Stage();
+			// addProductController.addSupplyerStage(nStage);
+			nStage.setScene(scene);
+			nStage.initModality(Modality.APPLICATION_MODAL);
+			nStage.initStyle(StageStyle.TRANSPARENT);
+			nStage.show();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	public void handleHanleEvent(ActionEvent e)
+	{
+		if (ValidateCustomerEntry())
+			AddCustomer();
+	}
+
+	private boolean ValidateCustomerEntry()
+	{
+		// validate if the fields are empty
+		String fname = myFirstName.getText();
+		String lname = myLastName.getText();
+
+		if (fname.isEmpty() || lname.isEmpty() || myMobileNo.getText().isEmpty())
+		{
+			JOptionPane.showMessageDialog(null, "Some of the necessary fields are empty!");
+			return false;
+		}
+
+		// validate mobile number
+		long mobNo;
+		try
+		{
+			mobNo = Long.parseLong(myMobileNo.getText());
+		}
+		catch (NumberFormatException e)
+		{
+			JOptionPane.showMessageDialog(null, "Mobile number should be a numerical value!");
+			return false;
+		}
+
+		if (String.valueOf(mobNo).length() != 10)
+		{
+			JOptionPane.showMessageDialog(null, "Mobile number should be 10 digit long!");
+			return false;
+		}
+
+		// validate email address
+		String email = myEmail.getText();
+		if (!email.isEmpty())
+		{
+			if (!email.contains("@") || !email.contains("."))
+			{
+				JOptionPane.showMessageDialog(null, "Email Address is Invalid!");
+				return false;
+			}
+		}
+		if (!(myGender_Male.isSelected() || myGender_Female.isSelected()))
+			return false;
+
+		return true;
+	}
+
+	private void AddCustomer()
+	{
+		// store customer details
+		DBTable db_table = DB_TableManager.GetInstance().GetTable("CustomerDetails");
+		DBTable_CustomerDetails customerDetailsTable = (DBTable_CustomerDetails) db_table;
+
+		String fname = myFirstName.getText();
+		String lname = myLastName.getText();
+		long mobNo = Long.parseLong(myMobileNo.getText());
+		String email = myEmail.getText();
+		int age = Integer.parseInt(myAge.getText());
+		String gender;
+
+		if (myGender_Male.isSelected())
+			gender = "Male";
+		else
+			gender = "Female";
+
+		String address = myAddress.getText();
+		myFirstName.setText("");
+		boolean success = customerDetailsTable.Insert(fname, lname, mobNo, email, age, gender, address);
+		String message = "";
+		if (success)
+			message = "New Customer Added!";
+		else
+			message = "Failed to add new Customer!";
+
+		myFirstName.setText("");
+		myLastName.setText("");
+		myMobileNo.setText("");
+		myAddress.setText("");
+		myEmail.setText("");
+		System.out.println("" + message);
+		JOptionPane.showMessageDialog(null, message);
+	}
+
+}

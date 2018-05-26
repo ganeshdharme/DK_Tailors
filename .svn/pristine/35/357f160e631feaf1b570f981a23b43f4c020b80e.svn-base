@@ -1,0 +1,114 @@
+package form.jfx.main;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+public class CustomerDetail
+{
+	private IntegerProperty myId;
+
+	private StringProperty myFirstName;
+	private StringProperty myLastName;
+	private LongProperty myMobileNo;
+	private StringProperty myEmail;
+	private IntegerProperty myAge;
+	private StringProperty myGender;
+	private StringProperty myAddress;
+
+	public CustomerDetail()
+	{
+		myId = new SimpleIntegerProperty();
+		myFirstName = new SimpleStringProperty();
+		myLastName = new SimpleStringProperty();
+		myMobileNo = new SimpleLongProperty();
+		myEmail = new SimpleStringProperty();
+		myAge = new SimpleIntegerProperty();
+		myGender = new SimpleStringProperty();
+		myAddress = new SimpleStringProperty();
+	}
+
+	public IntegerProperty GetId()
+	{
+		return myId;
+	}
+
+	public void SetId(int id)
+	{
+		myId.set(id);
+	}
+
+	public StringProperty GetFirstName()
+	{
+		return myFirstName;
+	}
+
+	public void SetFirstName(String firstName)
+	{
+		myFirstName.set(firstName);
+	}
+
+	public StringProperty GetLastName()
+	{
+		return myLastName;
+	}
+
+	public void SetLastName(String lastName)
+	{
+		myLastName.set(lastName);
+	}
+
+	public LongProperty GetMobileNo()
+	{
+		return myMobileNo;
+	}
+
+	public void SetMobileNo(long mobileNo)
+	{
+		myMobileNo.set(mobileNo);
+	}
+
+	public StringProperty GetEmail()
+	{
+		return myEmail;
+	}
+
+	public void SetEmail(String email)
+	{
+		myEmail.set(email);
+	}
+
+	public IntegerProperty GetAge()
+	{
+		return myAge;
+	}
+
+	public void SetAge(int age)
+	{
+		myAge.set(age);
+	}
+
+	public StringProperty GetGender()
+	{
+		return myGender;
+	}
+
+	public void SetGender(String gender)
+	{
+		myGender.set(gender);
+	}
+
+	public StringProperty GetAddress()
+	{
+		return myAddress;
+	}
+
+	public void SetAddress(String address)
+	{
+		myAddress.set(address);
+	}
+
+}

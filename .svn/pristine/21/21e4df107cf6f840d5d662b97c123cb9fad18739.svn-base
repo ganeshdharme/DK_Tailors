@@ -1,0 +1,17 @@
+package logger;
+
+public class Logger
+{
+
+	public static void Log(String log)
+	{
+		Exception exception = new Exception();
+		String callerFileName = exception.getStackTrace()[1].getFileName();
+		int callerLineNumber = exception.getStackTrace()[1].getLineNumber();
+
+		String output = callerFileName + "(" + callerLineNumber + "): ";
+		output += log;
+		System.out.println(output);
+	}
+
+}

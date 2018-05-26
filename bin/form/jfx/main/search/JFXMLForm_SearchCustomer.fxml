@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="762.0" prefWidth="1242.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="form.jfx.main.search.JFXMLController_SearchCustomer">
+   <children>
+      <SplitPane dividerPositions="0.4" layoutX="319.0" layoutY="175.0" prefHeight="704.0" prefWidth="906.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <JFXTextField fx:id="myTextField_Search" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="23.0" onAction="#OnTextFieldChanged_Search" prefHeight="25.0" prefWidth="402.0" promptText="Search" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                  <SplitPane dividerPositions="0.5" layoutX="5.0" layoutY="65.0" orientation="VERTICAL" prefHeight="637.0" prefWidth="423.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="myTableView_CustomerDetails" layoutX="14.0" layoutY="-77.0" prefHeight="329.0" prefWidth="421.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="126.0" text="First Name" />
+                                    <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="131.0" text="Last Name" />
+                                    <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="154.0" text="Mobile Number" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="421.0">
+                           <children>
+                              <AnchorPane layoutX="-10.0" layoutY="-46.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="480.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox prefHeight="385.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="273.0" prefWidth="454.0">
+                                             <children>
+                                                <VBox prefHeight="248.0" prefWidth="184.0">
+                                                   <children>
+                                                      <Label fx:id="myLabel_Email" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Email: " />
+                                                      <Label fx:id="myLabel_Address" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Address:" />
+                                                      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Age:" />
+                                                      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Gender:" />
+                                                      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Pending Amount:" />
+                                                      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Total Amount:" />
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox prefHeight="400.0" prefWidth="297.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Label" />
+                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Label" />
+                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Label" />
+                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Label" />
+                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Label" />
+                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="297.0" text="Label" />
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Button fx:id="myButton_ReceiveAmount" alignment="CENTER" mnemonicParsing="false" onAction="#OnButtonClicked_ReceiveAmount" prefHeight="38.0" prefWidth="130.0" text="Receive Amount" HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" right="20.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <Button fx:id="myButton_UpdateCustomerDetails" alignment="CENTER" mnemonicParsing="false" onAction="#OnButtonClicked_UpdateCustomerDetails" prefHeight="38.0" prefWidth="130.0" text="Update">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" right="20.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <Button fx:id="myButton_DeleteCustomer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#OnButtonClicked_DeleteCustomer" prefHeight="39.0" prefWidth="130.0" text="Delete">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" right="20.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox layoutX="114.0" layoutY="61.0" prefHeight="702.0" prefWidth="538.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="myTableView_Measurements" prefHeight="594.0" prefWidth="530.0" VBox.vgrow="SOMETIMES">
+                           <columns>
+                              <TableColumn prefWidth="105.0" text="Item" />
+                              <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="98.0" text="Type" />
+                              <TableColumn prefWidth="136.0" text="Sub-type" />
+                              <TableColumn prefWidth="178.0" text="Measurement" />
+                           </columns>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </TableView>
+                        <HBox alignment="CENTER" prefHeight="96.0" prefWidth="538.0">
+                           <children>
+                              <Button fx:id="myButton_UpdateMeasurement" mnemonicParsing="false" onAction="#OnButtonClicked_UpdateMeasurement" prefHeight="40.0" prefWidth="214.0" text="Update Measurement">
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="myButton_DeleteMeasurement" mnemonicParsing="false" onAction="#OnButtonClicked_DeleteMeasurement" prefHeight="40.0" prefWidth="217.0" text="Delete">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

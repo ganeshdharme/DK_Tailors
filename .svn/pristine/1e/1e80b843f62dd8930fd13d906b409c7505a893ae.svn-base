@@ -1,0 +1,59 @@
+package database.table.customerBalance;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import database.table.DBTable;
+
+public class DBTable_CustomerBalance extends DBTable
+{
+
+	public DBTable_CustomerBalance(String name)
+	{
+		super(name);
+	}
+
+	protected void Init()
+	{
+		AddAttribute("CustomerId int not null");
+		AddAttribute("PendingAmount int");
+		AddAttribute("TotalAmount int");
+	}
+
+	public boolean Insert(int customerId, int pendingAmount, int totalAmount)
+	{
+		return super.Insert(GetInsertionString(customerId, pendingAmount, totalAmount));
+	}
+
+	public BalanceDetails GetBalanceDetails(int customerId)
+	{
+		String condition = "CustomerId = " + customerId;
+		ResultSet rs = GetRecords(condition, 0, 1);
+		int pendingAmount = 0;
+		int totalAmount = 0;
+		try
+		{
+			if (rs.next())
+			{
+				pendingAmount = rs.getInt("PendingAmount");
+				totalAmount = rs.getInt("TotalAmount");
+			}
+			else
+				return null;
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		return (new BalanceDetails(customerId, pendingAmount, totalAmount));
+	}
+
+	private String GetInsertionString(int customerId, int pendingAmount, int totalAmount)
+	{
+		String sql = "Insert into " + myName + " (CustomerId, PendingAmount, TotalAmount) values ( " + customerId + ", "
+				+ pendingAmount + ", " + totalAmount + " );";
+		return sql;
+	}
+
+}

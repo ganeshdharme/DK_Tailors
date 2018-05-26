@@ -1,0 +1,46 @@
+package database.table.customerDetails;
+
+import database.table.DBTable;
+
+public class DBTable_CustomerDetails extends DBTable
+{
+
+	public DBTable_CustomerDetails(String name)
+	{
+		super(name);
+	}
+
+	protected void Init()
+	{
+		AddAttribute("CustomerId int primary key auto_increment not null");
+		AddAttribute("FirstName varchar(255)");
+		AddAttribute("LastName varchar(255)");
+		AddAttribute("MobNo bigint(11)");
+		AddAttribute("Email varchar(255)");
+		AddAttribute("Age int");
+		AddAttribute("Gender varchar(255)");
+		AddAttribute("Address varchar(255)");
+	}
+
+	public boolean Insert(String fname, String lname, long mobNo, String email, int age, String gender, String address)
+	{
+		return super.Insert(GetInsertionString(fname, lname, mobNo, email, age, gender, address));
+	}
+
+	private String GetInsertionString(String fname, String lname, long mobNo, String email, int age, String gender,
+			String address)
+	{
+		fname = "'" + fname + "'";
+		lname = "'" + lname + "'";
+		address = "'" + address + "'";
+		email = "'" + email + "'";
+		gender = "'" + gender + "'";
+
+		String sql = "insert into " + myName + " (FirstName, LastName, MobNo, Email, Age, Gender, Address) values ( "
+				+ fname + ", " + lname + ", " + mobNo + ", " + email + ", " + age + ", " + gender + ", " + address
+				+ " );";
+
+		return sql;
+	}
+
+}
